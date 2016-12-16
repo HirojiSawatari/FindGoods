@@ -24,7 +24,7 @@ COOKIES_ENABLED = False
 USER_AGENT = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36'
 
 # Output .csv in D:/
-FEED_URI = u'file:///D:/goods.csv'
+FEED_URI = u'goods.csv'
 FEED_FORMAT = 'CSV'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

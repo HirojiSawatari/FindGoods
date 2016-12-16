@@ -1,4 +1,4 @@
-# -*- coding:gb2312 -*-
+# -*- coding: gb2312 -*-
 
 '''
 Created on 2016-12-15
@@ -24,8 +24,11 @@ class FindGoods(Spider):
     def parse(self, response):
         # 反复确认是否搜索成功
         if response.url == "https://www.tmall.com/":
-            good = raw_input("请输入商品名称:")
-            # 天猫搜索“礼品”第一页
+            # 读取临时文件
+            temp = open('tempgoods.temp', 'r')
+            good = temp.read()
+            temp.close()
+            # 天猫搜索该商品第一页
             url = "https://list.tmall.com/search_product.htm?q=" + good + "&type=p&vmarket=&spm=875.7931836%2FA.a2227oh.d100&from=mallfp..pc_1_searchbutton"
             # 递归
             yield Request(url, callback=self.parse)
@@ -51,7 +54,11 @@ class FindGoods(Spider):
 
                 # sys.getfilesystemencoding()获得本地编码（mbcs编码）
                 item['name'] = [na.encode(sys.getfilesystemencoding()) for na in name]
-                item['shop'] = [sh.encode(sys.getfilesystemencoding()) for sh in shop]
+
+                # 去掉商店名末尾的\n换行符（有两个\n）
+                tempshop = str(shop[0].encode(sys.getfilesystemencoding()))
+                item['shop'] = tempshop.strip('\n')
+
                 item['price'] = price
                 item['url'] = 'https:' + url[0]
 
