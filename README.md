@@ -16,21 +16,21 @@ The code of getting information of goods:
 
 ```python
 gifts = sel.xpath('//*[@id="J_ItemList"]/div[@class="product  "]')
-  for gift in gifts:
-    name = gift.xpath('div/p[@class="productTitle"]/a/@title').extract()
-    # 天猫电器城HTML结构不同
-    if not name:
-      name = gift.xpath('div/div[@class="productTitle productTitle-spu"]/a[1]/text()').extract()
+    for gift in gifts:
+        name = gift.xpath('div/p[@class="productTitle"]/a/@title').extract()
+        # 天猫电器城HTML结构不同
+        if not name:
+            name = gift.xpath('div/div[@class="productTitle productTitle-spu"]/a[1]/text()').extract()
 
-      shop = gift.xpath('div/div[@class="productShop"]/a[@class="productShop-name"]/text()').extract()
-      price = gift.xpath('div/p[@class="productPrice"]/em/@title').extract()
-      trading = gift.xpath('div/p[@class="productStatus"]/span[1]/em/text()').extract()
-      review = gift.xpath('div/p[@class="productStatus"]/span[2]/a/text()').extract()
-      url = gift.xpath('div/p[@class="productTitle"]/a/@href').extract()
-      if not url:
-        url = gift.xpath('div/div[@class="productTitle productTitle-spu"]/a[1]/@href').extract()
+        shop = gift.xpath('div/div[@class="productShop"]/a[@class="productShop-name"]/text()').extract()
+        price = gift.xpath('div/p[@class="productPrice"]/em/@title').extract()
+        trading = gift.xpath('div/p[@class="productStatus"]/span[1]/em/text()').extract()
+        review = gift.xpath('div/p[@class="productStatus"]/span[2]/a/text()').extract()
+        url = gift.xpath('div/p[@class="productTitle"]/a/@href').extract()
+        if not url:
+            url = gift.xpath('div/div[@class="productTitle productTitle-spu"]/a[1]/@href').extract()
 ```
-There are some blogs about this project:
+There are some blogs about this project (simplified Chinese):
 
 [http://blog.csdn.net/osawatari/article/details/53716836](http://blog.csdn.net/osawatari/article/details/53716836)
 
