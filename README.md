@@ -31,6 +31,10 @@ gifts = sel.xpath('//*[@id="J_ItemList"]/div[@class="product  "]')
         url = gift.xpath('div/div[@class="productTitle productTitle-spu"]/a[1]/@href').extract()
 ```
 There are some blogs about this project:
+
 [http://blog.csdn.net/osawatari/article/details/53716836](http://blog.csdn.net/osawatari/article/details/53716836)
+
 [http://blog.csdn.net/osawatari/article/details/53717698](http://blog.csdn.net/osawatari/article/details/53717698)
+
 [http://blog.csdn.net/osawatari/article/details/53718400](http://blog.csdn.net/osawatari/article/details/53718400)
+
